@@ -4,8 +4,7 @@ setcookie("emailPos", base64_encode($_POST['user_email']), time() + 31536000, "/
 setcookie("passPos", base64_encode($_POST['user_password']), time() + 31536000, "/");
 
 $email    = mysqli_real_escape_string($conn, $_POST['user_email']);
-// $password = md5(md5(mysqli_real_escape_string($conn, $_POST['user_password'])));
-$password = mysqli_real_escape_string($conn, $_POST['user_password']);
+$password = md5(md5(mysqli_real_escape_string($conn, $_POST['user_password'])));
 
 $cek = $conn->query("SELECT * FROM user WHERE user_email='$email' AND user_password='$password'");
 
