@@ -1,7 +1,7 @@
 <footer class="main-footer">
     <strong>© <?= date("Y"); ?> Copyright <a href="http://www.senimankoding.com/" target="_blank">www.senimankoding.com</a> All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 0.1
+      <b>Version</b> 1.0
     </div>
   </footer>
 

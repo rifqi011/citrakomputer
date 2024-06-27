@@ -9,7 +9,7 @@ $datatoko = mysqli_fetch_array($toko);
 <html lang="en">
 
 <head>
-	<title>POS SERVIS - <?php echo $datatoko['toko_nama']; ?></title>
+	<title><?php echo $datatoko['toko_nama']; ?></title>
 	<meta charset="UTF-8">
 	<meta name="description" content="POS SERVIS <?php echo $datatoko['toko_nama']; ?> adalah Software Kasir dengan fitur lengkap dan support Multi cabang dengan manajemen servis hp & komputer. POS SERVIS <?php echo $datatoko['toko_nama']; ?> adalah software POS SERVIS Kasir multi user dengan fitur yang mempuni. aplikasi kasir, software retail, software minimarket, aplikasi supermarket, aplikasi retail, aplikasi kasir online, aplikasi kasir berbasis website">
 	<meta name="keyword" content="POS SERVIS <?php echo $datatoko['toko_nama']; ?> adalah Software Kasir dengan fitur lengkap dan support Multi cabang, aplikasi kasir, software retail, software minimarket, aplikasi supermarket, aplikasi retail, aplikasi kasir online, aplikasi kasir berbasis website">
