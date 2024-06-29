@@ -1,34 +1,33 @@
-<?php 
-	  include 'aksi/halau.php'; 
-  	include 'aksi/functions.php';
+<?php
+include 'aksi/halau.php';
+include 'aksi/functions.php';
 
-    $levelLogin = $_SESSION['user_level'];
-    $status = $_SESSION['user_status'];
-    if ( $status === '0') {
-    echo"
-          <script>
-            alert('Akun Tidak Aktif');
-            window.location='./';
-          </script>";
-    }
-      	
-  	// Membuat data user cabang dinamis 
+$levelLogin = $_SESSION['user_level'];
+$status = $_SESSION['user_status'];
+if ($status === '0') {
+	echo "
+					<script>
+						alert('Akun Tidak Aktif');
+						window.location='./';
+					</script>";
+}
 
-    $userLoginCabang = mysqli_query( $conn, "select user_cabang from user where user_id = '".$_SESSION['user_id']."'");
-    $sessionCabangData = mysqli_fetch_array($userLoginCabang); 
-    $sessionCabang     = $sessionCabangData['user_cabang'];
+// Membuat data user cabang dinamis 
 
-    // $sessionCabang     = $_SESSION['user_cabang'];
-    $dataTokoLogin = query("SELECT * FROM toko WHERE toko_cabang = $sessionCabang")[0];
+$userLoginCabang = mysqli_query($conn, "select user_cabang from user where user_id = '" . $_SESSION['user_id'] . "'");
+$sessionCabangData = mysqli_fetch_array($userLoginCabang);
+$sessionCabang     = $sessionCabangData['user_cabang'];
 
-  	// End Membuat data user cabang dinamis
+// $sessionCabang     = $_SESSION['user_cabang'];
+$dataTokoLogin = query("SELECT * FROM toko WHERE toko_cabang = $sessionCabang")[0];
 
-    if ( $sessionCabang < 1 ) {
-      $tipeToko = "Pusat";
-    } else {
-      $tipeToko = "Cabang ".$sessionCabang;
-    }
+// End Membuat data user cabang dinamis
 
-    // Id Login
-    $userIdLogin = $_SESSION['user_id'];
-?>
+if ($sessionCabang < 1) {
+	$tipeToko = "Pusat";
+} else {
+	$tipeToko = "Cabang " . $sessionCabang;
+}
+
+// Id Login
+$userIdLogin = $_SESSION['user_id'];

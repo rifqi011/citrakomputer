@@ -1,15 +1,15 @@
-<?php 
+<?php
 include 'aksi/koneksi.php';
 $cabang = $_GET['cabang'];
 
 // Database connection info 
-$dbDetails = array( 
-    'host' => $servername, 
-    'user' => $username, 
-    'pass' => $password, 
+$dbDetails = array(
+    'host' => $servername,
+    'user' => $username,
+    'pass' => $password,
     'db'   => $db
-); 
- 
+);
+
 // DB table to use 
 // $table = 'members'; 
 $table = <<<EOT
@@ -30,48 +30,46 @@ $table = <<<EOT
     LEFT JOIN kategori b ON a.barang_kategori_id = b.kategori_id
  ) temp
 EOT;
- 
+
 // Table's primary key 
-$primaryKey = 'barang_id'; 
- 
+$primaryKey = 'barang_id';
+
 // Array of database columns which should be read and sent back to DataTables. 
 // The `db` parameter represents the column name in the database.  
 // The `dt` parameter represents the DataTables column identifier. 
-$columns = array( 
-    array( 'db' => 'barang_id', 'dt'              => 0 ),
-    array( 'db' => 'barang_kode', 'dt'            => 1 ), 
-    array( 'db' => 'barang_nama', 'dt'            => 2 ), 
-    array( 'db' => 'kategori_nama',  'dt'         => 3 ), 
-    array( 'db' => 'barang_harga',      'dt'      => 4 ),
-    array( 'db' => 'barang_stock',      'dt'      => 5 ),
-    array( 
-        'db'        => 'barang_option_sn', 
-        'dt'        => 6, 
-        'formatter' => function( $d, $row ) { 
-            return ($d == 1)?'SN':'Non-SN'; 
-        } 
+$columns = array(
+    array('db' => 'barang_id', 'dt'              => 0),
+    array('db' => 'barang_kode', 'dt'            => 1),
+    array('db' => 'barang_nama', 'dt'            => 2),
+    array('db' => 'kategori_nama',  'dt'         => 3),
+    array('db' => 'barang_harga',      'dt'      => 4),
+    array('db' => 'barang_stock',      'dt'      => 5),
+    array(
+        'db'        => 'barang_option_sn',
+        'dt'        => 6,
+        'formatter' => function ($d, $row) {
+            return ($d == 1) ? 'SN' : 'Non-SN';
+        }
     ),
-    array( 
-        'db'        => 'barang_status', 
-        'dt'        => 7, 
-        'formatter' => function( $d, $row ) { 
+    array(
+        'db'        => 'barang_status',
+        'dt'        => 7,
+        'formatter' => function ($d, $row) {
             // Ternary Operator
-            return ($d == 1) ? "<span class='badge badge-success'>Dijual</span>" : 
-            ($d == 2 ? "<span class='badge badge-info'>Khusus Servis</span>" : 
-            ($d == 3 ? "<span class='badge badge-primary'>Dijual & Untuk Sevis</span>" :  
-            "<span class='badge badge-danger'>Tidak Dijual<span>")); 
-        } 
-    ) 
-); 
+            return ($d == 1) ? "<span class='badge badge-success'>Dijual</span>" : ($d == 2 ? "<span class='badge badge-info'>Khusus Servis</span>" : ($d == 3 ? "<span class='badge badge-primary'>Dijual & Untuk Sevis</span>" :
+                        "<span class='badge badge-danger'>Tidak Dijual<span>"));
+        }
+    )
+);
 
 // Include SQL query processing class 
-require 'aksi/ssp.php'; 
+require 'aksi/ssp.php';
 
 // require('ssp.class.php');
 
 // Output data as json format 
-echo json_encode( 
-    SSP::simple( $_GET, $dbDetails, $table, $primaryKey, $columns, null, "barang_cabang = $cabang " )
+echo json_encode(
+    SSP::simple($_GET, $dbDetails, $table, $primaryKey, $columns, null, "barang_cabang = $cabang ")
     // SSP::simple( $_GET, $dbDetails, $table, $primaryKey, $columns)
 
 );

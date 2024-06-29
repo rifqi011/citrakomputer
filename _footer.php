@@ -1,15 +1,15 @@
 <footer class="main-footer">
-    <strong>© <?= date("Y"); ?> Copyright <a href="http://www.senimankoding.com/" target="_blank">www.senimankoding.com</a> All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 1.0
-    </div>
-  </footer>
+	<strong>© <?= date("Y"); ?> Copyright <a href="http://www.citracomputer.com/" target="_blank">www.citracomputer.com</a> All rights reserved.
+		<div class="float-right d-none d-sm-inline-block">
+			<b>Version</b> 1.0
+		</div>
+</footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+	<!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 <script src="plugins/datatables/jquery.dataTables.js"></script>
@@ -41,15 +41,16 @@
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 </body>
+
 </html>
 <script>
-  $(function () {
+	$(function() {
 
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })
-  });
+		//Initialize Select2 Elements
+		$('.select2bs4').select2({
+			theme: 'bootstrap4'
+		})
+	});
 </script>
 
 
@@ -57,14 +58,14 @@
 <script src="dist/js/FileSaver.js"></script>
 <script src="dist/js/tableexport.min.js"></script>
 <script>
-  $(".table-laporan").tableExport();
+	$(".table-laporan").tableExport();
 </script>
 <!-- DataTables -->
 <script src="plugins/datatables/jquery.dataTables.js"></script>
 <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <script>
-  $(function () {
-    $("#example1").DataTable();
-    $("#example2").DataTable();
-  });
+	$(function() {
+		$("#example1").DataTable();
+		$("#example2").DataTable();
+	});
 </script>

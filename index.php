@@ -15,9 +15,9 @@ $datatoko = mysqli_fetch_array($toko);
 	<meta name="keyword" content="POS SERVIS <?php echo $datatoko['toko_nama']; ?> adalah Software Kasir dengan fitur lengkap dan support Multi cabang, aplikasi kasir, software retail, software minimarket, aplikasi supermarket, aplikasi retail, aplikasi kasir online, aplikasi kasir berbasis website">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<meta property="og:image" content="http://senimankoding.com/assets/img/logo.jpg" />
+	<!-- <meta property="og:image" content="http://senimankoding.com/assets/img/logo.jpg" /> -->
 	<!-- Favicon -->
-	<link rel="icon" type="img/png" sizes="32x32" href="http://senimankoding.com/assets/img/favicon.png">
+	<!-- <link rel="icon" type="img/png" sizes="32x32" href="http://senimankoding.com/assets/img/favicon.png"> -->
 
 	<link rel="stylesheet" type="text/css" href="assets-login/vendor/bootstrap/css/bootstrap.min.css">
 
