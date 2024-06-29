@@ -38,6 +38,7 @@ if (isset($_POST["submit"])) {
     }
 }
 ?>
+<link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/42.0.0/ckeditor5.css" />
 
 
 <!-- Content Wrapper. Contains page content -->
@@ -266,13 +267,13 @@ if (isset($_POST["submit"])) {
                                     <div class="col-md-6 col-lg-6">
                                         <div class="form-group">
                                             <label for="toko_teks_nota_servis_masuk">Teks Nota Servis Masuk</label>
-                                            <textarea name="toko_teks_nota_servis_masuk" id="input" class="form-control" rows="3" required="required"><?= $toko['toko_teks_nota_servis_masuk']; ?></textarea>
+                                            <textarea name="toko_teks_nota_servis_masuk" id="input toko_teks_nota_servis_masuk" class="form-control" rows="3" required="required"><?= $toko['toko_teks_nota_servis_masuk']; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-6">
                                         <div class="form-group">
                                             <label for="toko_teks_nota_servis_ambil">Teks Nota Servis Ambil</label>
-                                            <textarea name="toko_teks_nota_servis_ambil" id="input" class="form-control" rows="3" required="required"><?= $toko['toko_teks_nota_servis_ambil']; ?></textarea>
+                                            <textarea name="toko_teks_nota_servis_ambil" id="input toko_teks_nota_servis_ambil" class="form-control" rows="3" required="required"><?= $toko['toko_teks_nota_servis_ambil']; ?></textarea>
                                         </div>
                                     </div>
                                 </div>
