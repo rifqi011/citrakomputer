@@ -157,15 +157,16 @@ if (isset($_POST["updateHarga"])) {
         $userId = $_SESSION['user_id'];
         $keranjang = query("SELECT * FROM keranjang WHERE keranjang_id_kasir = $userId && keranjang_cabang = $sessionCabang ORDER BY keranjang_id ASC");
 
-        $countInvoice = mysqli_query($conn, "select * from invoice where invoice_cabang = " . $sessionCabang . " ");
+        $countInvoice = mysqli_query($conn, "SELECT * FROM invoice WHERE invoice_cabang = " . $sessionCabang . " AND invoice_date = date(Y-m-d)");
         $countInvoice = mysqli_num_rows($countInvoice);
         if ($countInvoice < 1) {
             $jmlPenjualan1 = 0;
         } else {
-            $penjualan = query("SELECT * FROM invoice WHERE invoice_cabang = $sessionCabang ORDER BY invoice_id DESC lIMIT 1")[0];
+            $penjualan = query("SELECT * FROM invoice WHERE invoice_cabang = $sessionCabang AND invoice_date = date(Y-m-d)  ORDER BY invoice_id DESC lIMIT 1")[0];
             $jmlPenjualan1 = $penjualan['penjualan_invoice_count'];
         }
         $jmlPenjualan1 = $jmlPenjualan1 + 1;
+        $nomorInvoice = str_pad($jmlPenjualan1, 4, "0", STR_PAD_LEFT);
 
         // $penjualan = query("SELECT * FROM invoice WHERE invoice_cabang = $sessionCabang ORDER BY invoice_id DESC lIMIT 1")[0];
         // $jmlPenjualan1 = $penjualan['penjualan_invoice_count'];
@@ -180,9 +181,9 @@ if (isset($_POST["updateHarga"])) {
                                 <span>No. Invoice: </span>
                                 <?php
                                 $today = date("Ymd");
-                                $di = $today . $jmlPenjualan1;
+                                $di = $today . $nomorInvoice;
                                 ?>
-                                <input type="" name="" value="<?= $di; ?>">
+                                <input type="" name="" value="<?= $di; ?>" readonly>
                             </div>
                         </div>
                         <div class="col-md-4 col-lg-4">
