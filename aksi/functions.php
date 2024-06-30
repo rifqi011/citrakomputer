@@ -202,8 +202,8 @@ function editToko($data) {
 	$toko_tipe_print_servis      = htmlspecialchars($data["toko_tipe_print_servis"]);
 	$toko_lebar_print_servis     = htmlspecialchars($data["toko_lebar_print_servis"]);
 	$toko_link     				 = htmlspecialchars($data["toko_link"]);
-	$toko_teks_nota_servis_masuk = htmlspecialchars($data["toko_teks_nota_servis_masuk"]);
-	$toko_teks_nota_servis_ambil = htmlspecialchars($data["toko_teks_nota_servis_ambil"]);
+	$toko_teks_nota_servis_masuk = addslashes($data["toko_teks_nota_servis_masuk"]);
+	$toko_teks_nota_servis_ambil = addslashes($data["toko_teks_nota_servis_ambil"]);
 	$toko_status    			 = htmlspecialchars($data["toko_status"]);
 	$toko_ongkir    			 = htmlspecialchars($data["toko_ongkir"]);
 

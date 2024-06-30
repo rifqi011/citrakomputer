@@ -657,5 +657,5 @@ $datatoko = mysqli_fetch_array($toko);
 
 </html>
 <script>
-    // window.print();
+    window.print();
 </script>
