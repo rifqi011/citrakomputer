@@ -249,7 +249,7 @@ $datatoko = mysqli_fetch_array($toko);
                     <?= $toko_kota; ?>
                 </div>
                 <div class="nota-header-kontak">
-                    <?= $toko_tlpn; ?> <?= $toko_wa; ?>
+                    <?= $toko_tlpn; ?>
                 </div>
             </div>
 
@@ -434,15 +434,15 @@ $datatoko = mysqli_fetch_array($toko);
                     </div>
                     <div class="nzb-top">
                         <div class="row">
-                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                                 <div class="nzb-top-text">
                                     <p><span><b><?= $toko_nama; ?></b></span></p>
                                     <p><?= $toko_alamat; ?></p>
-                                    <p><?= $toko_kota; ?></p>
-                                    <p><?= $toko_tlpn; ?> - <?= $toko_wa; ?></p>
+                                    <p><?= $toko_kota; ?> <?= $toko_tlpn; ?></p>
+                                   
                                 </div>
                             </div>
-                            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-padding">
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-padding">
                                 <div class="nzb-top-invoice">
                                     <table class="table">
                                         <tbody>
@@ -471,8 +471,12 @@ $datatoko = mysqli_fetch_array($toko);
                                     <table class="table">
                                         <tbody>
                                             <tr>
-                                                <td><b>Kepada</b></td>
-                                                <td><b>: <?= $ctrNama; ?></b></td>
+                                                <td width="10px"><b>Kepada</b></td>
+                                                <?php if ($ctrNama != "Customer Umum") { ?>
+                                                    <td>: <?= $ctrNama; ?></td>
+                                                <?php } else { ?>
+                                                    <td>: _____________</td>
+                                                <?php } ?>
                                             </tr>
                                             <tr>
                                                 <td>Tlpn</td>
@@ -541,7 +545,7 @@ $datatoko = mysqli_fetch_array($toko);
                                 </div>
                             <?php } ?>
 
-                            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                            <div class="col-xs-12">
                                 <div class="nota-table-kelengkapan nota-note">
                                     <b>Keterangan</b>: </br><?= $keterangan; ?>
                                 </div>
@@ -612,7 +616,11 @@ $datatoko = mysqli_fetch_array($toko);
                                                     _______________
                                                     <br>
                                                     <b style="text-transform: capitalize;">
-                                                        <?= $ctrNama; ?>
+                                                        <?php if ($ctrNama != "Customer Umum") { ?>
+                                                            <td><?= $ctrNama; ?></td>
+                                                        <?php } else { ?>
+                                                            <td></td>
+                                                        <?php } ?>
                                                     </b>
                                                 </div>
                                             </div>

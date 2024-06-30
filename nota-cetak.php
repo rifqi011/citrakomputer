@@ -95,6 +95,10 @@ $datatoko = mysqli_fetch_array($toko);
     <?php if ($toko_tipe_print_toko > 0) : ?>
         <section class="nota" style="width: <?= $lebarPrint; ?>;">
             <div class="nota-box">
+                <div class="nti-title text-center">
+                    NOTA PENJUALAN
+                </div>
+
                 <div class="nota-box-title">
                     <div class="nbt-parent">
                         <?= $toko_nama; ?>
@@ -151,7 +155,13 @@ $datatoko = mysqli_fetch_array($toko);
                                     <b>Kasir:</b> <?= $ksrDetail; ?>
                                 </div>
                                 <div class="nbi-text-parent">
-                                    <b>Pembeli:</b> <?= $ctrNama; ?>
+                                    <b>Pembeli</b>
+                                    <?php if ($ctrNama != "Customer Umum") { ?>
+                                        <td>: <?= $ctrNama; ?></td>
+                                    <?php } else { ?>
+                                        <td>: </td>
+                                    <?php } ?>
+
                                 </div>
                                 <?php if ($ctrId == 1) { ?>
                                     <div class="nbi-text-parent">
@@ -296,7 +306,7 @@ $datatoko = mysqli_fetch_array($toko);
                         Powered By
                     </div>
                     <div class="nbf-url">
-                        www.senimankoding.com
+                        www.citracomputer.com
                     </div>
                 </div>
             </div>
@@ -306,14 +316,18 @@ $datatoko = mysqli_fetch_array($toko);
         <section class="nota-lebar">
             <div class="">
                 <div class="nota-lebar-box">
+                    <div class="nti-title text-center">
+                        NOTA PENJUALAN
+                    </div>
+
                     <div class="nzb-top">
                         <div class="row">
                             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                 <div class="nzb-top-text">
                                     <p><span><b><?= $toko_nama; ?></b></span></p>
                                     <p><?= $toko_alamat; ?></p>
-                                    <p><?= $toko_kota; ?></p>
-                                    <p><?= $toko_tlpn; ?> - <?= $toko_wa; ?></p>
+                                    <p><?= $toko_kota; ?> <?= $toko_tlpn; ?></p>
+                                    
                                 </div>
                             </div>
                             <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
@@ -330,7 +344,11 @@ $datatoko = mysqli_fetch_array($toko);
                                             </tr>
                                             <tr>
                                                 <td>Kepada</td>
-                                                <td>: <?= $ctrNama; ?></td>
+                                                <?php if ($ctrNama != "Customer Umum") { ?>
+                                                    <td>: <?= $ctrNama; ?></td>
+                                                <?php } else { ?>
+                                                    <td>: </td>
+                                                <?php } ?>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -529,7 +547,7 @@ $datatoko = mysqli_fetch_array($toko);
                         <div class="nzb-footer-box">
                             <div class="nota-box-footer">
                                 <div class="nbf-text">
-                                    Powered By: www.senimankoding.com
+                                    Powered By: www.citracomputer.com
                                 </div>
                             </div>
                         </div>
