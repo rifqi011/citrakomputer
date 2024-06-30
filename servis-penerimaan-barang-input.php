@@ -69,7 +69,7 @@ $ds_cabang 							= htmlspecialchars($_POST['ds_cabang']);
 				";
 
 		mysqli_query($conn, $query)
-		or die ("Gagal Perintah SQL".mysql_error());
+		or die ("Gagal Perintah SQL");
 		
     $data['hasil'] = 'sukses';
     
