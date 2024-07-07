@@ -161,7 +161,7 @@ if (isset($_POST["updateSn"])) {
             </div>
     </section>
 
-    <section class="content" id="biaya-jasa">
+    <!-- <section class="content" id="biaya-jasa">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -270,7 +270,7 @@ if (isset($_POST["updateSn"])) {
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <br>
     <section class="content" id="biaya-sparepart">
         <div class="container-fluid">
@@ -688,8 +688,51 @@ $levelLogin = $_SESSION['user_level'];
                     <!-- /.card-header -->
                     <div class="card-body">
                         Nota : <?= $nota ?>;
-                        idservis : <?= $kategori ?>; <?=$userIdLogin?>
+                        idservis : <?= $kategori ?>; <?= $userIdLogin ?>
 
+                        <form role="form" action="" method="post">
+                            <div class="row">
+                                <input type="hidden" name="servis_id_user_create" value="<?= $userIdLogin; ?>">
+                                <div class="col-md-6 col-lg-6">
+                                    <input type="hidden" name="servis_cabang" value="<?= $sessionCabang; ?>">
+                                    <div class="form-group">
+                                        <label for="servis_nama">Nama Servis</label>
+                                        <input type="text" name="servis_nama" class="form-control" id="servis_nama" placeholder="Input Nama Servis" required>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="servis_kategori" class="">Kategori Servis</label>
+                                        <div class="">
+                                            <?php $data = query("SELECT * FROM kategori_servis WHERE kategori_servis_cabang = $sessionCabang && kategori_servis_status > 0 ORDER BY kategori_servis_id DESC"); ?>
+
+                                            <select name="servis_kategori" required="" class="form-control ">
+                                                <option value="">--Pilih Kategori--</option>
+                                                <?php foreach ($data as $row) : ?>
+                                                    <option value="<?= $row['kategori_servis_id']; ?>">
+                                                        <?= $row['kategori_servis_nama']; ?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="servis_biaya_jasa_teknisi">Biaya Jasa Servis Teknisi</label>
+                                        <input type="number" name="servis_biaya_jasa_teknisi" class="form-control" id="servis_biaya_jasa_teknisi" placeholder="Input Biaya Servis yang Didapatkan Teknisi" onkeypress="return hanyaAngka(event)">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="servis_biaya_profit">Biaya Profit Toko</label>
+                                        <input type="number" name="servis_biaya_profit" class="form-control" id="servis_biaya_profit" placeholder="Input Nominal Keuntungan Toko" onkeypress="return hanyaAngka(event)">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer text-right">
+                                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
 
 
                         <!-- <div class="table-auto">
@@ -712,9 +755,6 @@ $levelLogin = $_SESSION['user_level'];
                     </div>
                     <!-- /.card-body -->
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

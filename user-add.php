@@ -13,7 +13,7 @@ if ($id === null) {
           </script>
         ";
 }
-if ($levelLogin !== "super admin") {
+if ($levelLogin !== "owner") {
 	echo "
       <script>
         document.location.href = 'bo';
@@ -105,7 +105,6 @@ if (isset($_POST["submit"])) {
 													<option value="kasir">Kasir</option>
 													<option value="teknisi">Teknisi</option>
 													<option value="kurir">Kurir</option>
-													<option value="super admin">Super Admin</option>
 												</select>
 											</div>
 										</div>

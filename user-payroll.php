@@ -5,7 +5,7 @@
 ?>
 
 <?php  
-  if ( $levelLogin !== "super admin" ) {
+  if ( $levelLogin !== "owner" ) {
     echo "
       <script>
         document.location.href = 'bo';
@@ -108,8 +108,8 @@ if( isset($_POST["submit"]) ){
                             <label for="user_level" class="">Level</label>
                             <div class="">
                               <?php  
-                                if ( $user['user_level'] === "super admin" ) {
-                                  $level = "Super Admin";
+                                if ( $user['user_level'] === "owner" ) {
+                                  $level = "owner";
                                 } elseif ( $user['user_level'] === "admin" ) {
                                   $level = "Admin";
                                 } elseif ( $user['user_level'] === "kurir" ) {

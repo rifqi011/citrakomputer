@@ -116,7 +116,7 @@
 				<?php } ?>
 
 				<li class="nav-header">LAPORAN</li>
-				<?php if ($levelLogin === "super admin") { ?>
+				<?php if ($levelLogin === "owner") { ?>
 					<li class="nav-item has-treeview">
 						<a href="#" class="nav-link">
 							<i class="nav-icon fa fa-line-chart"></i>
@@ -163,9 +163,9 @@
 					</a>
 				</li>
 
-				<?php if ($levelLogin === "super admin" || $levelLogin === "admin") { ?>
+				<?php if ($levelLogin === "owner" || $levelLogin === "admin") { ?>
 					<li class="nav-header">KONFIGURASI</li>
-					<?php if ($levelLogin === "super admin") { ?>
+					<?php if ($levelLogin === "owner") { ?>
 						<li class="nav-item">
 							<a href="#!" class="nav-link">
 								<i class="nav-icon fa fa-users"></i>

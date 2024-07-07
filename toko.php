@@ -5,7 +5,7 @@ include '_sidebar.php';
 ?>
 
 <?php
-if ($levelLogin !== "super admin" && $sessionCabang == 0) {
+if ($levelLogin !== "owner" && $sessionCabang == 0) {
     echo "
       <script>
         document.location.href = 'bo';
